@@ -30,4 +30,14 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public function showLesson() {
+        
+        $args = [
+            'post_type' => 'post',
+            'posts_per_page' => 1
+        ];
+        $query = new \WP_Query( $args );
+        return $query;
+    }
 }

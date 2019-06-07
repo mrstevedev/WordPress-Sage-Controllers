@@ -10,11 +10,25 @@
 
   <?php endif; ?>
 
-  <?php while(have_posts()): ?> <?php the_post() ?>
-    <?php echo $__env->make('partials.content-'.get_post_type(), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  
+  
 
-    <?php echo $__env->make('icon::youtube', ['color' => '#ff0000'], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  <?php endwhile; ?>
+  
+   <?php while($show_featured_post->have_posts()): ?> <?php $show_featured_post->the_post() ?>
+    <div class="featured">
+      <h5><?php echo e(the_title()); ?></h5>
+    </div>
+   <?php endwhile; ?> 
+   
+   <?php echo e(wp_reset_query()); ?>
+
+  
+
+  
+   <?php while($show_posts->have_posts()): ?> <?php $show_posts->the_post() ?>
+      <p><?php echo e(the_title()); ?></p>
+   <?php endwhile; ?> 
+  
 
   <?php echo get_the_posts_navigation(); ?>
 

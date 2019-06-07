@@ -17,8 +17,6 @@
          <?php while($related_products->have_posts()): ?> <?php $related_products->the_post() ?>
             <div class="related-product-item">
                 <p><?php echo e(the_title()); ?></p>
-
-                
             </div>
         <?php endwhile; ?>
     </div>
